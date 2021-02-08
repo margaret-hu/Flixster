@@ -22,11 +22,11 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 
 ### App Walkthough GIF
 
-<img src="flix2.gif" width=250><br>
+<img src="flix_walkthough_land.gif" width=250><br>
 
 ### Notes
 
-I could not read the whole movie overview in landscape mode. I used a scrollbar to compensate the issue.
+I could not read the whole movie overview in landscape mode. I used a scrollbar to compensate the issue. I also had some issues using the Glide transformations.
 
 ## Open-source libraries used
 - [Android Async HTTP](https://github.com/codepath/CPAsyncHttpClient) - Simple asynchronous HTTP requests with JSON parsing
@@ -52,7 +52,7 @@ I could not read the whole movie overview in landscape mode. I used a scrollbar 
 
 ### App Walkthough GIF
 
-<img src="flix1.gif" width=250><br>
+<img src="flix_walkthough.gif" width=250><br>
 
 ### Notes
 I had some trouble finding the auto-rotate on the phone emulator.
