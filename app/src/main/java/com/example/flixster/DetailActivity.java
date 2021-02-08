@@ -2,6 +2,7 @@ package com.example.flixster;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.RatingBar;
@@ -31,6 +32,7 @@ public class DetailActivity extends YouTubeBaseActivity {
     RatingBar ratingBar;
     YouTubePlayerView youTubePlayerView;
 
+    @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
