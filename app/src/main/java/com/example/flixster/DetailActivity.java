@@ -32,6 +32,8 @@ public class DetailActivity extends YouTubeBaseActivity {
     RatingBar ratingBar;
     YouTubePlayerView youTubePlayerView;
 
+    boolean isPopular = false;
+
     @SuppressLint("DefaultLocale")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,10 @@ public class DetailActivity extends YouTubeBaseActivity {
         Movie movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
-        ratingBar.setRating((float) movie.getRating());
+
+        float voteAverage = (float) movie.getRating();
+        ratingBar.setRating(voteAverage);
+        if (voteAverage >= 5) isPopular = true;
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(String.format(VIDEOS_URL, movie.getMovieId()), new JsonHttpResponseHandler() {
@@ -77,7 +82,10 @@ public class DetailActivity extends YouTubeBaseActivity {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 Log.d("DetailActivity", "onInitializationSuccess");
-                youTubePlayer.cueVideo(youtubeKey);
+                if (isPopular)
+                    youTubePlayer.loadVideo(youtubeKey);
+                else
+                    youTubePlayer.cueVideo(youtubeKey);
             }
 
             @Override
